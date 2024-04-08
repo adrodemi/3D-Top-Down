@@ -359,6 +359,8 @@
 "Assets/Scripts/AgentAnimator.cs"
 "Assets/Scripts/AgentMotor.cs"
 "Assets/Scripts/CampFire.cs"
+"Assets/Scripts/Character.cs"
+"Assets/Scripts/Enemy.cs"
 "Assets/Scripts/Interactable.cs"
 "Assets/Scripts/Player.cs"
 "Assets/Scripts/SmartCamera.cs"

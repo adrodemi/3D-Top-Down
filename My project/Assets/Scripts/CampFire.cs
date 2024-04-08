@@ -8,5 +8,6 @@ public class CampFire : Interactable
     {
         Player.Instance.Heal();
         Player.Instance.PickUp();
+        print(gameObject.name);
     }
 }
