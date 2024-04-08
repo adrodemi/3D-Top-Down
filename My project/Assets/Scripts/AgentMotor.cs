@@ -11,6 +11,7 @@ public class AgentMotor : MonoBehaviour
     private Transform target;
 
     private bool isPickUp = false;
+    private bool isAttacking = false;
 
     private void Start()
     {
@@ -24,7 +25,7 @@ public class AgentMotor : MonoBehaviour
             agent.SetDestination(target.position);
             LookAtTarget();
         }
-        if (!isPickUp)
+        if (!isPickUp && !isAttacking)
         {
             if (agent.velocity.magnitude < agent.speed * 0.2f)
                 animator.SetAnimState(AgentAnimator.AnimStates.Idle);
@@ -64,5 +65,16 @@ public class AgentMotor : MonoBehaviour
         animator.SetAnimState(AgentAnimator.AnimStates.PickUp);
         yield return new WaitForSeconds(1f);
         isPickUp = false;
+    }
+    public void StartAttack(float timeBeforeAttack)
+    {
+        StartCoroutine(Attack(timeBeforeAttack));
+    }
+    private IEnumerator Attack(float timeBeforeAttack)
+    {
+        isAttacking = true;
+        animator.SetAnimState(AgentAnimator.AnimStates.Attack);
+        yield return new WaitForSeconds(timeBeforeAttack - 0.05f);
+        isAttacking = false;
     }
 }

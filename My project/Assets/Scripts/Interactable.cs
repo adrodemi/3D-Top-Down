@@ -5,28 +5,28 @@ using UnityEngine;
 public abstract class Interactable : MonoBehaviour
 {
     public float interactRadius = 2f;
-    public bool isFocus = false;
-    private Transform subject;
+    protected bool isFocus = false;
+    protected GameObject subject;
 
     private bool hasinteracted = false;
 
-    public abstract void Interact();
-    private void Update()
+    public abstract void Interact(GameObject subject);
+    protected virtual void Update()
     {
         if (isFocus && !hasinteracted)
         {
-            float distance = Vector3.Distance(transform.position, subject.position);
+            float distance = Vector3.Distance(transform.position, subject.transform.position);
             if (distance <= interactRadius)
             {
-                Interact();
+                Interact(subject);
                 hasinteracted = true;
             }
         }
     }
-    public void OnFocused(Transform subjectTransform)
+    public void OnFocused(GameObject newSubject)
     {
         isFocus = true;
-        subject = subjectTransform;
+        subject = newSubject;
         hasinteracted = false;
     }
     public void OnDefocused()

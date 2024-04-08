@@ -4281,7 +4281,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRadius: 2
-  isFocus: 0
 --- !u!136 &492211904
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13647,7 +13646,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRadius: 2
-  isFocus: 0
 --- !u!4 &98530556712521314
 Transform:
   m_ObjectHideFlags: 0
@@ -14507,12 +14505,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99ffe421aca36844ba3012a871f016ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactRadius: 2
+  maxHealth: 100
+  currentHealth: 0
+  damage: 20
+  timeBeforeAttack: 2
+  canAttack: 0
   movableMask:
     serializedVersion: 2
     m_Bits: 8
   focus: {fileID: 0}
-  maxHealth: 100
-  currentHealth: 0
   swordObject: {fileID: 1624192050}
 --- !u!1 &2757814528913054186
 GameObject:
@@ -14732,6 +14734,10 @@ PrefabInstance:
     - target: {fileID: 753367798396475730, guid: 78a3ff524511a434bbc8597f8f9b9750, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201197895453386641, guid: 78a3ff524511a434bbc8597f8f9b9750, type: 3}
+      propertyPath: damage
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4474155979633780966, guid: 78a3ff524511a434bbc8597f8f9b9750, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16959,7 +16965,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRadius: 3
-  isFocus: 0
+  maxHealth: 100
+  currentHealth: 0
+  damage: 20
+  timeBeforeAttack: 2
+  canAttack: 1
 --- !u!1 &8684436572013398882
 GameObject:
   m_ObjectHideFlags: 0

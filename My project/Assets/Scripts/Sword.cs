@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sword : Interactable
 {
-    public override void Interact()
+    public override void Interact(GameObject subject)
     {
         Player.Instance.PickUp();
         Player.Instance.ActivateSword();

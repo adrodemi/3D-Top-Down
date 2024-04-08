@@ -2,18 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AgentMotor))]
-public class Enemy : MonoBehaviour
+public class Enemy : Character
 {
-    private AgentMotor motor;
     [SerializeField] private Interactable focus;
     [SerializeField] private float agreRadius = 10f;
-    private void Start()
+    protected override void Update()
     {
-        motor = GetComponent<AgentMotor>();
-    }
-    private void Update()
-    {
+        base.Update();
         float distance = Vector3.Distance(transform.position, Player.Instance.transform.position);
         if (distance <= agreRadius)
         {
@@ -33,7 +28,7 @@ public class Enemy : MonoBehaviour
             focus = newFocus;
             motor.FollowTarget(focus);
         }
-        focus.OnFocused(transform);
+        focus.OnFocused(gameObject);
     }
     private void RemoveFocus()
     {

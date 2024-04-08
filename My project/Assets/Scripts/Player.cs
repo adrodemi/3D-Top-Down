@@ -3,35 +3,24 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using UnityEngine;
 
-[RequireComponent(typeof(AgentMotor))]
-public class Player : MonoBehaviour
+public class Player : Character
 {
     private Camera mainCamera;
     [SerializeField] private LayerMask movableMask;
-    private AgentMotor motor;
-
     [SerializeField] private Interactable focus;
-
-    [SerializeField] private float maxHealth = 100f;
-    [SerializeField] private float currentHealth;
-
-    private bool canAttack = false;
     [SerializeField] private GameObject swordObject;
 
     public static Player Instance;
+
     private void Awake()
     {
         Instance = this;
-    }
-    private void Start()
-    {
         mainCamera = Camera.main;
-        motor = GetComponent<AgentMotor>();
-        currentHealth = maxHealth / 2;
+        canAttack = false;
     }
-
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -66,7 +55,7 @@ public class Player : MonoBehaviour
             focus = newFocus;
             motor.FollowTarget(focus);
         }
-        focus.OnFocused(transform);
+        focus.OnFocused(gameObject);
     }
     private void RemoveFocus()
     {
