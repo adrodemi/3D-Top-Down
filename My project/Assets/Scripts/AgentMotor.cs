@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(NavMeshAgent), typeof(AgentAnimator))]
 public class AgentMotor : MonoBehaviour
 {
     private NavMeshAgent agent;
+    private AgentAnimator animator;
     private Transform target;
 
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<AgentAnimator>();
     }
     private void Update()
     {
@@ -20,6 +22,12 @@ public class AgentMotor : MonoBehaviour
             agent.SetDestination(target.position);
             LookAtTarget();
         }
+        if (agent.velocity.magnitude == 0)
+        {
+            animator.SetAnimState(AgentAnimator.AnimStates.Idle);
+        }
+        else
+            animator.SetAnimState(AgentAnimator.AnimStates.Running);
     }
     public void MoveToPoint(Vector3 point)
     {
