@@ -12,10 +12,22 @@ public class Player : MonoBehaviour
 
     [SerializeField] private Interactable focus;
 
+    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private float currentHealth;
+
+    private bool canAttack = false;
+    [SerializeField] private GameObject swordObject;
+
+    public static Player Instance;
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
         mainCamera = Camera.main;
         motor = GetComponent<AgentMotor>();
+        currentHealth = maxHealth / 2;
     }
 
     private void Update()
@@ -63,5 +75,18 @@ public class Player : MonoBehaviour
 
         focus = null;
         motor.StopFollowingTarget();
+    }
+    public void Heal()
+    {
+        currentHealth = maxHealth;
+    }
+    public void PickUp()
+    {
+        motor.StartPickUp();
+    }
+    public void ActivateSword()
+    {
+        canAttack = true;
+        swordObject.SetActive(true);
     }
 }

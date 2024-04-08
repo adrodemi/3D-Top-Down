@@ -358,9 +358,11 @@
 "Assets/Polytope Studio/Lowpoly_Characters/Sources/Scripts/PT_Create_Prefab.cs"
 "Assets/Scripts/AgentAnimator.cs"
 "Assets/Scripts/AgentMotor.cs"
+"Assets/Scripts/CampFire.cs"
 "Assets/Scripts/Interactable.cs"
 "Assets/Scripts/Player.cs"
 "Assets/Scripts/SmartCamera.cs"
+"Assets/Scripts/Sword.cs"
 -langversion:9.0
 
 /deterministic
