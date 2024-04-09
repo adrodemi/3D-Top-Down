@@ -362,8 +362,11 @@
 "Assets/Scripts/Character.cs"
 "Assets/Scripts/Enemy.cs"
 "Assets/Scripts/Interactable.cs"
+"Assets/Scripts/LevelLoader.cs"
+"Assets/Scripts/Menu.cs"
 "Assets/Scripts/Player.cs"
 "Assets/Scripts/SmartCamera.cs"
+"Assets/Scripts/SoundEffects.cs"
 "Assets/Scripts/Sword.cs"
 -langversion:9.0
 
