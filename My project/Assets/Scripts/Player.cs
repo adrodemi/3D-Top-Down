@@ -18,6 +18,7 @@ public class Player : Character
         Instance = this;
         mainCamera = Camera.main;
         canAttack = false;
+        transform.position = SaveSystem.GetPlayerPosition();
     }
     protected override void Update()
     {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Quest : MonoBehaviour
 {
+    public int id;
     new public string name = "Test Quest";
     [Multiline] public string description = "Do something!";
     public int coinsReward = 10;
