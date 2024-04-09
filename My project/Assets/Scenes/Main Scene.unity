@@ -13782,8 +13782,8 @@ MonoBehaviour:
     good reward!'
   coinsReward: 10
   enemies:
-  - {fileID: 753367798396475730, guid: 78a3ff524511a434bbc8597f8f9b9750, type: 3}
-  - {fileID: 753367798396475730, guid: 78a3ff524511a434bbc8597f8f9b9750, type: 3}
+  - {fileID: 6240235793036376226, guid: 05ba439bce2e37946a50fd4726dfd3aa, type: 3}
+  - {fileID: 6240235793036376226, guid: 05ba439bce2e37946a50fd4726dfd3aa, type: 3}
   isDone: 0
   questName: {fileID: 2135558234}
   questDescription: {fileID: 1266921410}
