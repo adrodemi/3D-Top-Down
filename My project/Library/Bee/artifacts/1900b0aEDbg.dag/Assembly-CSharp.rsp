@@ -369,6 +369,7 @@
 "Assets/Scripts/Quest.cs"
 "Assets/Scripts/QuestsSystem.cs"
 "Assets/Scripts/SaveSystem.cs"
+"Assets/Scripts/Settings.cs"
 "Assets/Scripts/SmartCamera.cs"
 "Assets/Scripts/SoundEffects.cs"
 "Assets/Scripts/Sword.cs"
