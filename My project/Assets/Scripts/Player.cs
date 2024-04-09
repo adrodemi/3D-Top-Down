@@ -9,6 +9,7 @@ public class Player : Character
     [SerializeField] private LayerMask movableMask;
     [SerializeField] private Interactable focus;
     [SerializeField] private GameObject swordObject;
+    [SerializeField] private int coinsCount;
 
     public static Player Instance;
 
@@ -77,5 +78,14 @@ public class Player : Character
     {
         canAttack = true;
         swordObject.SetActive(true);
+    }
+    protected override void Die()
+    {
+        Time.timeScale = 0;
+    }
+    public void AddCoins(int coins)
+    {
+        coinsCount += coins;
+        print($"You get - {coins} coins \n You have - {coinsCount} coins");
     }
 }

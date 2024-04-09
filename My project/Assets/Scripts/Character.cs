@@ -4,9 +4,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(AgentMotor))]
-public class Character : Interactable
+public abstract class Character : Interactable
 {
-    [SerializeField] protected float maxHealth = 100f;
+    [SerializeField] protected float maxHealth = 100f;  
     [SerializeField] protected float currentHealth;
     [SerializeField] private float damage = 20f;
     [SerializeField] private float timeBeforeAttack = 1f;
@@ -29,7 +29,7 @@ public class Character : Interactable
         {
             if (character.canAttack)
             {
-                while (isFocus)
+                while (isFocus && subject != null)
                 {
                     if (Vector3.Distance(transform.position, subject.transform.position) <= interactRadius)
                     {
@@ -60,9 +60,5 @@ public class Character : Interactable
         if (currentHealth <= 0f)
             Die();
     }
-    private void Die()
-    {
-        print($"{gameObject.name} - DEAD!");
-        Destroy(gameObject);
-    }
+    protected abstract void Die();
 }

@@ -274,7 +274,6 @@ GameObject:
   - component: {fileID: 6249888964164278031}
   - component: {fileID: 3346265601232377161}
   - component: {fileID: 8330980076923435630}
-  - component: {fileID: 100667336211939626}
   - component: {fileID: 3201197895453386641}
   - component: {fileID: 8647847322895479010}
   m_Layer: 0
@@ -293,7 +292,7 @@ Transform:
   m_GameObject: {fileID: 753367798396475730}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.92, y: 0.59, z: 17.19}
+  m_LocalPosition: {x: -7, y: 0, z: 10.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -370,20 +369,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535e4422a299fa140bdabec0d262e805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &100667336211939626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 753367798396475730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3685de46aa421b44eb9b719df00603e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactRadius: 3
-  isFocus: 0
 --- !u!114 &3201197895453386641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,8 +381,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63dcd8e6d5be7a44a95ce383fbc9c6fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactRadius: 2
+  maxHealth: 100
+  currentHealth: 0
+  damage: 20
+  timeBeforeAttack: 1
+  canAttack: 1
   focus: {fileID: 0}
   agreRadius: 10
+  quest: {fileID: 0}
 --- !u!136 &8647847322895479010
 CapsuleCollider:
   m_ObjectHideFlags: 0

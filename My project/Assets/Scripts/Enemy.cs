@@ -6,6 +6,8 @@ public class Enemy : Character
 {
     [SerializeField] private Interactable focus;
     [SerializeField] private float agreRadius = 10f;
+
+    public Quest quest;
     protected override void Update()
     {
         base.Update();
@@ -38,10 +40,16 @@ public class Enemy : Character
         focus = null;
         motor.StopFollowingTarget();
     }
-
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, agreRadius);
+    }
+    protected override void Die()
+    {
+        if (quest != null)
+            quest.OnEnemyDead();
+
+        Destroy(gameObject);
     }
 }
