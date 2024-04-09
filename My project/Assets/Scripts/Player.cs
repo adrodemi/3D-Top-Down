@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : Character
 {
@@ -10,6 +11,10 @@ public class Player : Character
     [SerializeField] private Interactable focus;
     [SerializeField] private GameObject swordObject;
     [SerializeField] private int coinsCount;
+
+    public Text health;
+
+    public Button restartButton;
 
     public static Player Instance;
 
@@ -20,8 +25,14 @@ public class Player : Character
         canAttack = false;
         transform.position = SaveSystem.GetPlayerPosition();
     }
+    private void Start()
+    {
+        motor = GetComponent<AgentMotor>();
+        currentHealth = maxHealth / 2;
+    }
     protected override void Update()
     {
+        health.text = "Health: " + currentHealth;
         base.Update();
         if (Input.GetMouseButtonDown(0))
         {
@@ -83,6 +94,7 @@ public class Player : Character
     protected override void Die()
     {
         Time.timeScale = 0;
+        restartButton.gameObject.SetActive(true);
     }
     public void AddCoins(int coins)
     {

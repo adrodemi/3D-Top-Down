@@ -20,11 +20,11 @@ public static class SaveSystem
         {
             return new Vector3(PlayerPrefs.GetFloat("PlayerPositionX"),
                 PlayerPrefs.GetFloat("PlayerPositionY"),
-                PlayerPrefs.GetFloat("PlayerPositionY"));
+                PlayerPrefs.GetFloat("PlayerPositionZ"));
         }
         else
         {
-            return new Vector3(10f, 0.5f, 20f);
+            return new Vector3(0f, 0f, 0f);
         }
     }
     public static void SetDoneQuests(List<Quest> quests)

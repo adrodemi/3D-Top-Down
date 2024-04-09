@@ -6,9 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(AgentMotor))]
 public abstract class Character : Interactable
 {
-    [SerializeField] protected float maxHealth = 100f;  
-    [SerializeField] protected float currentHealth;
-    [SerializeField] private float damage = 20f;
+    [SerializeField] protected int maxHealth = 100;  
+    [SerializeField] protected int currentHealth;
+    [SerializeField] private int damage = 20;
     [SerializeField] private float timeBeforeAttack = 1f;
     [SerializeField] public bool canAttack = true;
     protected AgentMotor motor;
@@ -53,7 +53,7 @@ public abstract class Character : Interactable
         yield return new WaitForSeconds(timeBeforeAttack);
         canAttack = true;
     }
-    private void TakeDamage(float damage)
+    private void TakeDamage(int damage)
     {
         currentHealth -= damage;
         print($"Health {gameObject.name}: {currentHealth}");

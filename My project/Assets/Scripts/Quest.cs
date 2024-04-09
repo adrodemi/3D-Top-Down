@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Quest : MonoBehaviour
 {
@@ -12,14 +13,22 @@ public class Quest : MonoBehaviour
     private int enemyCount;
     public bool isDone = false;
     private bool isActive = false;
+    public Text questName, questDescription, questReward, questCompletedText;
     private void Start()
     {
         enemyCount = enemies.Count;
+        questName.text += name;
+        questDescription.text += description;
+        questReward.text += coinsReward;
     }
     public void StartQuest()
     {
         if (!isActive)
         {
+            questName.gameObject.SetActive(true);
+            questDescription.gameObject.SetActive(true);
+            questReward.gameObject.SetActive(true);
+
             QuestsSystem.Instance.activeQuests.Add(this);
             float areaLength = 5f;
             foreach (var enemy in enemies)
@@ -49,5 +58,9 @@ public class Quest : MonoBehaviour
         isActive = false;
         Player.Instance.AddCoins(coinsReward);
         print("Quest Done!");
+        questName.gameObject.SetActive(false);
+        questDescription.gameObject.SetActive(false);
+        questReward.gameObject.SetActive(false);
+        questCompletedText.gameObject.SetActive(true);
     }
 }
